@@ -18,7 +18,7 @@ public class ProductoEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_cli")
+	@Column(name = "id_prod")
 	private Integer codigo;
 	@Column(name = "nom_prod")
 	private String nombre;
@@ -28,10 +28,12 @@ public class ProductoEntity {
 	private double precio;
 	@Column(name = "stock")
 	private int stock;
+	@Column(name = "imagen_prod")
+	private String foto;
 	
 
 	@ManyToOne
-	@JoinColumn(name = "idTipo")
+	@JoinColumn(name = "id_Tipo")
 	private TipoEntity tipo;
 	
 	@OneToMany(mappedBy = "producto")
@@ -77,6 +79,14 @@ public class ProductoEntity {
 		this.stock = stock;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public TipoEntity getTipo() {
 		return tipo;
 	}
@@ -92,7 +102,6 @@ public class ProductoEntity {
 	public void setListarDetalleVenta(List<DetalleVentaEntity> listarDetalleVenta) {
 		this.listarDetalleVenta = listarDetalleVenta;
 	}
-
 
 	
 	
